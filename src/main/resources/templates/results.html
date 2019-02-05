@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>RFM | Retrieved Mail</title>
+</head>
+<body>
+	<h1>My retrieved mail</h1>
+	
+	<p th:text="'Email: '+ ${info.email}"></p>
+	<p th:text="'To: '+ ${info.to}"></p>
+	<p th:text="'From: '+ ${info.from}"></p>
+	<a href="/login/gmail">Load new mails</a>
+	
+</body>
+</html>

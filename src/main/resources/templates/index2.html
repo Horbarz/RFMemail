@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>RFM | Home</title>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/rfm_style.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+ 
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">RFM Email Retrival System</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Service Desk</a></li>
+        <li><a href="#">Gmail</a></li>
+        <li><a href="#">Retrived Mails</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="www.gmail.com/login"><span class="glyphicon glyphicon-user"></span></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <!-- <div class="col-sm-2 sidenav">
+      <p><a href="#">Link</a></p>
+      <p><a href="#">Link</a></p>
+      <p><a href="#">Link</a></p>
+    </div> -->
+    <div class="container invisible-at-first" id=homeDiv>
+        <div class="jumbotron text-center">
+          <h1>Welcome to RFM Email Retrival System</h1>
+        </div>
+    </div>
+    
+	<div class="col-sm-8 text-left"> 
+    	<p>This system is a fully functional system that retrieves RFM Email dockets from gmail mailing system</p>
+      	<h3>FirstBank Dockets</h3>
+      	<p>
+      	<form class="form-inline" action="#" th:action="@{/index}" th:object="${info}" method="post">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              <input id="email" type="text" th:field="*{email}" class="form-control" name="email" placeholder="Sender">
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon">From:</span>
+              <input id="from_date" type="date" th:field="*{from}" class="form-control" name="date">
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon">To:</span>
+              <input id="to_date" type="date" th:field="*{to}" name="date" class="form-control">
+            </div>
+            <div><p><input type="submit" value="Submit" class="btn btn-primary"/></p></div>
+         </form>       
+      	</p>	
+    </div>
+    
+    <div class="col-sm-4">
+    	<h4 th:text = "'Retrived Mails from ' +${info.email}"></h4>
+    	<p th:text="${myJson}" />
+    </div>
+   </div>
+   
+   
+</div>
+
+<!-- <footer class="container-fluid text-center">
+  <p>Footer Text</p>
+</footer> -->
+
+</body>
+</html>
